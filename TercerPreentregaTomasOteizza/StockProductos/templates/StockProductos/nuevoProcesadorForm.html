@@ -1,0 +1,13 @@
+{% extends "StockProductos/index.html" %}
+
+{% block contenido  %}
+<h1> Nuevo Procesador: </h1>
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button class="btn btn-info" type="submit">Agregar</button>
+</form>
+
+{% endblock contenido %}

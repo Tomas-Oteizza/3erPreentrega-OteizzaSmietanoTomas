@@ -1,0 +1,30 @@
+{% extends "StockProductos/index.html" %}
+
+{% block contenido  %}
+<h1> Nuestras placas de video en stock son: </h1>
+<a class="btn btn-info" href="{% url 'nuevoPlacaVideoForm' %}" role="button">Agregar una nueva placa de video al inventario</a>
+<a class="btn btn-info" href="{% url 'buscarPlacasVideo' %}" role="button">Buscar placas de video:</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>marca</th>
+            <th>modelo</th>
+            <th>precio en USD</th>
+            <th>descripcion</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for placaVideo in placasVideo %}  
+            <tr>
+                <td>{{ placaVideo.id }}</td>
+                <td>{{ placaVideo.marca }}</td>
+                <td>{{ placaVideo.modelo }}</td>
+                <td>{{ placaVideo.precio }}</td>
+                <td>{{ placaVideo.descripcion }}</td>
+            </tr>
+        {% endfor %}  
+    </tbody>
+</table>
+{% endblock contenido %}
+

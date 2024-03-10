@@ -1,0 +1,29 @@
+{% extends "StockProductos/index.html" %}
+
+{% block contenido  %}
+<h1> Nuestros teclados en stock son: </h1>
+<a class="btn btn-info" href="{% url 'nuevoTecladoForm' %}" role="button">Agregar un nuevo teclado al inventario</a>
+<a class="btn btn-info" href="{% url 'buscarTeclados' %}" role="button">buscar teclados:</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>marca</th>
+            <th>modelo</th>
+            <th>precio en USD</th>
+            <th>descripcion</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for teclado in teclados %}
+            <tr>
+                <td>{{ teclado.id }}</td>
+                <td>{{ teclado.marca }}</td>
+                <td>{{ teclado.modelo }}</td>
+                <td>{{ teclado.precio }}</td>
+                <td>{{ teclado.descripcion }}</td>
+            </tr>
+        {% endfor %}  
+    </tbody>
+</table>
+{% endblock contenido %}

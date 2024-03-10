@@ -1,0 +1,29 @@
+{% extends "StockProductos/index.html" %}
+
+{% block contenido  %}
+<h1> Nuestros procesadores en stock son: </h1>
+<a class="btn btn-info" href="{% url 'nuevoProcesadorForm' %}" role="button">Agregar un nuevo procesador al inventario</a>
+<a class="btn btn-info" href="{% url 'buscarProcesadores' %}" role="button">buscar procesadores:</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>marca</th>
+            <th>modelo</th>
+            <th>precio en USD</th>
+            <th>descripcion</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for procesador in procesadores %}
+            <tr>
+                <td>{{ procesador.id }}</td>
+                <td>{{ procesador.marca }}</td>
+                <td>{{ procesador.modelo }}</td>
+                <td>{{ procesador.precio }}</td>
+                <td>{{ procesador.descripcion }}</td>
+            </tr>
+        {% endfor %}  
+    </tbody>
+</table>
+{% endblock contenido %}
